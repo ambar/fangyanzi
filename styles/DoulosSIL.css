@@ -1,0 +1,6 @@
+@font-face {
+  font-family: 'Doulos SIL';
+  font-display: swap;
+  src: url('./DoulosSIL-Regular.woff2') format('woff2'),
+    url('./DoulosSIL-Regular.woff') format('woff');
+}
