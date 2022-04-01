@@ -1,3 +1,18 @@
+# 汉语方言字
+
+<https://fangyanzi.vercel.app>
+
+数字化语保工程的《汉语方言用字规范》，其用字主要收集自《现代汉语方言大词典》。
+
+修正如下：
+
+- 标点与简繁纠正
+- 音标纠正，避免使用 Unicode PUA (Private Use Area)，使用网络字体优化显示
+- 示例字纠正，避免使用 Unicode PUA，对扩展区（B~G）汉字使用网络字体优化显示
+- 没有 Unicode 编码的字采用 SVG 图片表示
+
+---
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -11,12 +26,6 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
 ## Learn More
 
