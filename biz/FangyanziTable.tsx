@@ -59,9 +59,13 @@ const IDSGlyph: React.FC<{ids: string}> = ({ids}) => {
 const Intro = () => {
   return (
     <>
-      數據來自語保工程出版的《漢語方言用字規範》總表，其取字主要來自《現代漢語方言大詞典》。
+      數據取自語保工程出版的《漢語方言用字規範》總表，其用字主要收集自《現代漢語方言大詞典》。
       <br />
-      列表中〈某〉表示沒有 unicode 編碼的漢字，展示為圖片。如有訛誤，請
+      字列中「〈某〉」表示沒有 unicode 編碼的漢字，展示為圖片。
+      <br />
+      釋列中「嚴式」表自造字、合音合體字或特有字；「寬式」為方言常用字；「其他」指常見的訓讀字或同音借字之類。
+      <br />
+      如有訛誤，請
       <ui.Link
         href="https://github.com/ambar/fangyanzi/issues/new"
         target="_blank"
@@ -264,7 +268,9 @@ const FangyanziTable = () => {
           <ui.Text className="useHana">
             {x.def}
             <>{x.note && ` ○ ${x.note}`}</>
-            <ui.Badge>{x.type}</ui.Badge>
+            <ui.Badge bg="gray.100" fontWeight="normal">
+              {x.type}
+            </ui.Badge>
           </ui.Text>
         </ui.Td>
         <ui.Td>{x.group.join('')}</ui.Td>
@@ -276,7 +282,7 @@ const FangyanziTable = () => {
     <ui.Box
       css={{
         '.useHana': {
-          fontFamily: useExtFont ? 'Hana' : 'inherit',
+          fontFamily: useExtFont ? 'Hana, var(--chakra-fonts-body)' : 'inherit',
         },
       }}
     >
