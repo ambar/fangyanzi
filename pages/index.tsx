@@ -1,13 +1,17 @@
 import * as ui from '@chakra-ui/react'
 import type {GetServerSideProps, NextPage} from 'next'
 import Head from 'next/head'
+import type { Router } from 'next/router'
 import FangyanziTable from '~/biz/FangyanziTable'
 
-const Home: NextPage = () => {
+const siteName = '方言字'
+const Home: NextPage<{query: Router['query']}> = ({query}) => {
+  const title = [query.q || query.group, siteName].filter(Boolean).join( ' - ')
+
   return (
     <ui.Container maxW="6xl" px="1">
       <Head>
-        <title>方言字</title>
+        <title>{title}</title>
         <meta
           name="description"
           content="方言字,汉语方言用字规范,现代汉语方言大词典"
@@ -21,10 +25,10 @@ const Home: NextPage = () => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async ({query}) => {
   return {
     // force SSR rendering
-    props: {},
+    props: {query},
   }
 }
 
