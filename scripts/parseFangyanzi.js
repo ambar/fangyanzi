@@ -116,6 +116,7 @@ const parseLines = (lines) => {
       .replace(/绩溪/g, '績溪')
       .replace(/上犹/g, '上猶')
       .replace(/温州/g, '溫州')
+      .replace(/(厦门)|(厦門)/g, '廈門')
     x = fixIPA(x)
     const [, note] = x.match(/○([^〔]*)/) || []
     const [, group] = x.match(/〔(.*)〕/) || []
