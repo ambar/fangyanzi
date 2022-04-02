@@ -16,8 +16,9 @@ const Home: NextPage<{query: Router['query']}> = ({query}) => {
           name="description"
           content="方言字,汉语方言用字规范,现代汉语方言大词典"
         />
-        <link rel="icon" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" sizes="32x32" type="image/png" href="/favicon-32.png" />
+        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"></link>
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
       </Head>
 
       <FangyanziTable />
