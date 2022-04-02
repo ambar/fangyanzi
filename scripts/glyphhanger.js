@@ -14,7 +14,7 @@ const exts = [
   'ExtensionG',
 ]
 const chars = revised
-  .map((x) => x.char)
+  .map((x) => [x.char, ...x.def, ...(x.note ?? '')]).flat()
   .filter((x) => x && exts.includes(getRange(x)))
   .join('')
 

@@ -24,6 +24,22 @@ const fixIPA = (x) => {
       .replace(/¶/g, 'ɤ')
       // 娄底 https://zh.wikipedia.org/wiki/%E5%A8%84%E5%BA%95%E8%AF%9D
       .replace(//g, 'ɤ')
+      // 廈門：行 忻州：𠼟
+      .replace(/a\)/g, 'ã')
+
+      // 纠错： 共三处
+      // 東莞：䉺 原文错标为 21345
+      .replace(//g, getToneLetter(213))
+      // 廣州：偈 原文错标为 245
+      .replace(/˨/g, getToneLetter(22))
+      // 銀川：㞎 保留
+      .replace(//g, getToneLetter(45))
+
+      // 疑标错
+      // 嘉興：伏 https://www.wugniu.com/allplaces?char=%E4%BC%8F 原文疑标错为 15
+      .replace(//g, getToneLetter(14))
+      // 無錫：夭 https://zh.wikipedia.org/wiki/%E6%97%A0%E9%94%A1%E8%AF%9D#%E5%A3%B0%E8%B0%83 原文疑标错为 31
+      .replace(//g, getToneLetter(13))
 
       // 粤 https://zh.wikipedia.org/wiki/%E7%B2%A4%E8%AF%AD#%E8%81%B2%E8%AA%BF%E7%B3%BB%E7%B5%B1
       .replace(//g, getToneLetter(23))
@@ -39,6 +55,12 @@ const fixIPA = (x) => {
       // 烏魯木齊 笡 https://zh.wikipedia.org/wiki/%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E8%AF%9D
       .replace(//g, getToneLetter(213))
       .replace(//g, getToneLetter(51))
+      // 柳州：𠮨 建甌：腂
+      .replace(//g, getToneLetter(54))
+      // 厦门：行 北京：茈 —— 文档标为 13，很可能有误，纠正为 35（阳平）
+      .replace(/Ä/g, getToneLetter(35))
+      // 武漢：肏 濟南：孬 烏魯木齊：餷
+      .replace(//g, getToneLetter(213))
 
       // 吴语 https://zh.wikipedia.org/wiki/%E5%90%B4%E8%AF%AD#%E5%A3%B0%E8%B0%83
       // 無錫 扷
@@ -47,10 +69,18 @@ const fixIPA = (x) => {
       .replace(//g, getToneLetter(512))
       // 上海/無錫 㓟
       .replace(//g, getToneLetter(53))
+      // 上海：毻 金华：湔
+      .replace(//g, getToneLetter(34))
       // 金華 渠
       .replace(//g, getToneLetter(212))
       // 無錫 晛 (梅縣 53?)
       .replace(//g, getToneLetter(52))
+      // 福州：腯 無錫：碫
+      .replace(//g, getToneLetter(242))
+      // 温州：䯿 忻州：𠠃
+      .replace(//g, getToneLetter(313))
+      // 嘉興：憨 https://www.wugniu.com/allplaces?char=%E6%86%A8
+      .replace(//g, getToneLetter(14))
 
       // 貴陽:厾
       .replace(//g, getToneLetter(31))
@@ -80,6 +110,19 @@ const fixIPA = (x) => {
       .replace(//g, getToneLetter(24))
       // 湘潭：䜊，寧波：㪬
       .replace(//g, getToneLetter(12))
+
+      // 娄煩：峁
+      .replace(//g, getToneLetter(312))
+      // 應縣：眊
+      .replace(//g, getToneLetter(43))
+      // 黟縣：嫑
+      .replace(//g, getToneLetter(324))
+      // 都昌：唔 金華：亨
+      .replace(//g, getToneLetter(334))
+      // 金華：儂 長治：玍
+      .replace(//g, getToneLetter(535))
+      // 寧遠：滮 https://www.zhihu.com/xen/market/pdf-view/paid_magazine/1395242869838409728
+      .replace(//g, getToneLetter(435))
   )
 }
 
@@ -109,6 +152,7 @@ let reReading = RegExp(
   'gu'
 )
 let reCity = RegExp(`(${cities.join('|')})`)
+let rePUA = /[\uE000-\uF8FF]/
 const parseLines = (lines) => {
   let items = splitLines(lines).map((x, i) => {
     x = x
@@ -121,7 +165,7 @@ const parseLines = (lines) => {
     const [, note] = x.match(/○([^〔]*)/) || []
     const [, group] = x.match(/〔(.*)〕/) || []
     const [, first] =
-      x.match(/(^\p{Script=Han}|[\uE000-\uF0A6])(\s|\n|\d)/u) || []
+      x.match(/(^\p{Script=Han}|[\uE000-\uF8FF])(\s|\n|\d)/u) || []
     assert.ok(!group.includes('○'), x)
     let rest = x.replace(/○.*$/, '').replace(/〔.*$/, '')
     let pinyins = rest.match(reReading)
@@ -131,6 +175,7 @@ const parseLines = (lines) => {
     }
     rest = rest.replace(reReading, '')
     let pinyin = pinyins.map((x) => {
+      assert.ok(!rePUA.test(x), x)
       let [, city, py] = x.split(reCity)
       return [
         city,
