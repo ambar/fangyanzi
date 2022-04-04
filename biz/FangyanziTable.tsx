@@ -5,8 +5,9 @@ import Fuse from 'fuse.js'
 import pickBy from 'lodash/pickBy'
 import {useRouter} from 'next/router'
 // @ts-expect-error React has no exported member 'useDeferredValue'
-import {useDeferredValue, useEffect, useMemo, useState} from 'react'
-import fangyanzi from '../data/fangyanzi'
+import {useDeferredValue, useEffect, useMemo, useState, memo} from 'react'
+import fangyanzi, {Zi} from '../data/fangyanzi'
+import BatchRenderer from './BatchRenderer.jsx'
 import {citiesByGroup, Group, groups} from '../data/fangyanzi.meta'
 
 const citiesByGroupEntries = Object.entries(citiesByGroup)
@@ -93,6 +94,33 @@ const HelpPopover: React.FC = ({children}) => {
     </ui.Popover>
   )
 }
+
+const RowItem: React.FC<{item: Zi}> = memo(function RowItem({item}) {
+  return (
+    <ui.Tr>
+      <ui.Td>
+        <ui.Box fontSize="xl" className="useHana">
+          {item.glyph === 'ids' ? <IDSGlyph ids={item.ids!} /> : item.char}
+        </ui.Box>
+      </ui.Td>
+      <ui.Td>
+        <ui.Text fontSize="sm" fontFamily="Doulos SIL, Arial">
+          {Object.entries(item.pinyin)
+            .map((x) => x.join(' '))
+            .join(' ')}
+        </ui.Text>
+        <ui.Text className="useHana">
+          {item.def}
+          <>{item.note && ` ○ ${item.note}`}</>
+          <ui.Badge bg="gray.100" fontWeight="normal">
+            {item.type}
+          </ui.Badge>
+        </ui.Text>
+      </ui.Td>
+      <ui.Td>{item.group.join('')}</ui.Td>
+    </ui.Tr>
+  )
+})
 
 const defaultTypeFilter = ['嚴式', '寬式', '其他']
 const defaultGroup = groups // ['湘']
@@ -251,33 +279,6 @@ const FangyanziTable = () => {
     </ui.Menu>
   )
 
-  const rows = useMemo(() => {
-    return filtered.map((x) => (
-      <ui.Tr key={x.__key__}>
-        <ui.Td>
-          <ui.Box fontSize="xl" className="useHana">
-            {x.glyph === 'ids' ? <IDSGlyph ids={x.ids!} /> : x.char}
-          </ui.Box>
-        </ui.Td>
-        <ui.Td>
-          <ui.Text fontSize="sm" fontFamily="Doulos SIL, Arial">
-            {Object.entries(x.pinyin)
-              .map((x) => x.join(' '))
-              .join(' ')}
-          </ui.Text>
-          <ui.Text className="useHana">
-            {x.def}
-            <>{x.note && ` ○ ${x.note}`}</>
-            <ui.Badge bg="gray.100" fontWeight="normal">
-              {x.type}
-            </ui.Badge>
-          </ui.Text>
-        </ui.Td>
-        <ui.Td>{x.group.join('')}</ui.Td>
-      </ui.Tr>
-    ))
-  }, [filtered])
-
   return (
     <ui.Box
       css={{
@@ -333,7 +334,12 @@ const FangyanziTable = () => {
               <ui.Th>區</ui.Th>
             </ui.Tr>
           </ui.Thead>
-          <ui.Tbody>{rows}</ui.Tbody>
+          <ui.Tbody>
+            {/* @ts-expect-error ignore */}
+            <BatchRenderer items={filtered}>
+              {(item: Zi) => <RowItem key={item.__key__} item={item} />}
+            </BatchRenderer>
+          </ui.Tbody>
         </ui.Table>
       </ui.Box>
 
