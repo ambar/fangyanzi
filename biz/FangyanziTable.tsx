@@ -72,7 +72,7 @@ const Intro = () => {
       <br />
       如有訛誤，請
       <ui.Link
-        href="https://github.com/ambar/fangyanzi/issues/new"
+        href="https://github.com/ambar/fangyanzi/issues"
         target="_blank"
         color="teal"
       >

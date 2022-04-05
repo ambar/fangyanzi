@@ -131,6 +131,7 @@ const splitLines = (lines) => {
   for (const [i, next] of lines.entries()) {
     const prev = lines[i - 1]
     if (!prev) {
+      out.push(next)
       continue
     }
     let last = out[out.length - 1]
@@ -154,7 +155,7 @@ let reReading = RegExp(
 let reCity = RegExp(`(${cities.join('|')})`)
 let rePUA = /[\uE000-\uF8FF]/
 const parseLines = (lines) => {
-  let items = splitLines(lines).map((x, i) => {
+  let items = splitLines(lines).map(x => {
     x = x
       .replace(/娄底/g, '婁底')
       .replace(/绩溪/g, '績溪')
