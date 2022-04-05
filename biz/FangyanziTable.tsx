@@ -54,17 +54,21 @@ const IDSGlyph: React.FC<{ids: string}> = ({ids}) => {
       css={{filter: colorMode === 'dark' ? 'invert(1)' : 'unset'}}
     />
   )
-  return <ui.Flex mx="-1em">〈{img}〉</ui.Flex>
+  return (
+    <ui.Flex mx="-1em" alignItems="center">
+      〈{img}〉
+    </ui.Flex>
+  )
 }
 
 const Intro = () => {
   return (
     <>
-      數據取自語保工程出版的《漢語方言用字規範》總表，其用字主要收集自《現代漢語方言大詞典》。
+      字列中尖括号标记的〈某〉表示沒有 Unicode 編碼的漢字，展示為圖片。
       <br />
       釋列中「嚴式」表自造字、合音合體字或特有字；「寬式」為方言常用字；「其他」指常見的訓讀字或同音借字之類。
       <br />
-      字列中尖括号标记的〈某〉表示沒有 Unicode 編碼的漢字，展示為圖片。
+      數據取自教育部語保工程出版的《漢語方言用字規範》總表，其用字主要收集自《現代漢語方言大詞典》。
       <br />
       如有訛誤，請
       <ui.Link
@@ -193,7 +197,6 @@ const FangyanziTable = () => {
           type="checkbox"
           value={isAllSelected ? ['yes'] : ['no']}
           onChange={() => {
-            // setKeyword('')
             setCurrentGroup(isAllSelected ? ([] as Group[]) : groups)
           }}
         >
@@ -204,7 +207,6 @@ const FangyanziTable = () => {
           type="radio"
           value={filterMode}
           onChange={(v) => {
-            // setKeyword('')
             setFilterMode(v as FilterMode)
           }}
         >
@@ -217,7 +219,6 @@ const FangyanziTable = () => {
             type="checkbox"
             value={currentGroup}
             onChange={(v) => {
-              // setKeyword('')
               setCurrentGroup(v as Group[])
             }}
           >
@@ -235,7 +236,6 @@ const FangyanziTable = () => {
               type="checkbox"
               value={cities}
               onChange={(v) => {
-                // setKeyword('')
                 setCities(v as string[])
               }}
             >
@@ -256,7 +256,7 @@ const FangyanziTable = () => {
       <ui.MenuButton as={ui.Button}>顯示設定</ui.MenuButton>
       <ui.MenuList minWidth="240px" maxHeight="80vh" overflowY="auto">
         <ui.MenuOptionGroup
-          title="類型"
+          title="分類"
           type="checkbox"
           value={typeFilter}
           onChange={(v) => setTypeFilter(v as string[])}
@@ -267,13 +267,14 @@ const FangyanziTable = () => {
             </ui.MenuItemOption>
           ))}
         </ui.MenuOptionGroup>
+        <ui.MenuDivider />
         <ui.MenuOptionGroup
-          title="字體"
+          // title=""
           type="checkbox"
           value={[useExtFont ? 'yes' : 'no']}
           onChange={() => setUseExtFont(!useExtFont)}
         >
-          <ui.MenuItemOption value="yes">擴展區訂製</ui.MenuItemOption>
+          <ui.MenuItemOption value="yes">使用擴展區訂製字體</ui.MenuItemOption>
         </ui.MenuOptionGroup>
       </ui.MenuList>
     </ui.Menu>
@@ -282,6 +283,7 @@ const FangyanziTable = () => {
   return (
     <ui.Box
       css={{
+        'th, td': {padding: '.8em 1.2em'},
         '.useHana': {
           fontFamily: useExtFont ? 'Hana, var(--chakra-fonts-body)' : 'inherit',
         },
@@ -326,7 +328,7 @@ const FangyanziTable = () => {
             },
           }}
         >
-          <ui.TableCaption>共有 {filtered.length} 項</ui.TableCaption>
+          <ui.TableCaption>共 {filtered.length} 項</ui.TableCaption>
           <ui.Thead>
             <ui.Tr>
               <ui.Th>字</ui.Th>
