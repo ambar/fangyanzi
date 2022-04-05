@@ -3,6 +3,10 @@ const {execSync} = require('child_process')
 const revised = require('../data/fangyanzi.json')
 const {getRange} = require('../lib/cjkrange')
 
+/**
+ * 采用开源的花园明朝显示扩展区汉字
+ * @see https://zh.wikipedia.org/wiki/Wikipedia:Unicode扩展汉字#支援大字集的字型
+ */
 const exts = [
   // macOS 默认能显示
   // 'ExtensionA',
