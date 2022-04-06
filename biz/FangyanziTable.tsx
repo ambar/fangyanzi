@@ -107,7 +107,7 @@ const RowItem: React.FC<{item: Zi}> = memo(function RowItem({item}) {
         <ui.Flex fontSize="xl" className="useHana">
           {item.glyph === 'ids' ? <IDSGlyph ids={item.ids!} /> : item.char}
           {item.sup && (
-            <ui.Text as="sup" fontSize="xs" userSelect="none">
+            <ui.Text as="sup" fontSize="xs" userSelect="none" zIndex={0}>
               {item.sup}
             </ui.Text>
           )}
@@ -140,6 +140,7 @@ const parseGroup = (group: string) => {
   return group.split('').filter((x) => groups.includes(x as Group)) as Group[]
 }
 
+// NOTE: 确保 z-index 关系，toolbar popover > sticky thead > sup
 const FangyanziTable = () => {
   const router = useRouter()
   const {query} = router
@@ -299,8 +300,8 @@ const FangyanziTable = () => {
       <ui.FormControl as="fieldset">
         <ui.HStack>
           {/* https://github.com/chakra-ui/chakra-ui/issues/3173 */}
-          <ui.Box zIndex={20}>{filterMenu}</ui.Box>
-          <ui.Box zIndex={20}>{displayMenu}</ui.Box>
+          <ui.Box>{filterMenu}</ui.Box>
+          <ui.Box>{displayMenu}</ui.Box>
           <ui.Box>
             <ui.Input
               className="useHana"
@@ -328,7 +329,6 @@ const FangyanziTable = () => {
             th: {
               position: 'sticky',
               top: 0,
-              zIndex: 10,
               textTransform: 'none',
               fontSize: '1em',
               bg: colorMode === 'dark' ? 'gray.800' : 'white',
