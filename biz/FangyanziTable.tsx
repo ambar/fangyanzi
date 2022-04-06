@@ -328,6 +328,7 @@ const FangyanziTable = () => {
             th: {
               position: 'sticky',
               top: 0,
+              zIndex: 10,
               textTransform: 'none',
               fontSize: '1em',
               bg: colorMode === 'dark' ? 'gray.800' : 'white',
