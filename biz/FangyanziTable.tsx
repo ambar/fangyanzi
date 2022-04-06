@@ -299,8 +299,8 @@ const FangyanziTable = () => {
       <ui.FormControl as="fieldset">
         <ui.HStack>
           {/* https://github.com/chakra-ui/chakra-ui/issues/3173 */}
-          <ui.Box>{filterMenu}</ui.Box>
-          <ui.Box>{displayMenu}</ui.Box>
+          <ui.Box zIndex={20}>{filterMenu}</ui.Box>
+          <ui.Box zIndex={20}>{displayMenu}</ui.Box>
           <ui.Box>
             <ui.Input
               className="useHana"
