@@ -161,6 +161,7 @@ const parseLines = (lines) => {
       .replace(/绩溪/g, '績溪')
       .replace(/上犹/g, '上猶')
       .replace(/温州/g, '溫州')
+      .replace(/苏州/g, '蘇州')
       .replace(/(厦门)|(厦門)/g, '廈門')
     x = fixIPA(x)
     const [, note] = x.match(/○([^〔]*)/) || []
@@ -199,19 +200,23 @@ const parseLines = (lines) => {
         ]
       : void 0
     let char = first
-    const def = rest.replace(char, '').trim()
+    let def = rest.replace(char, '').trim()
     if (reToneLetters.test(def)) {
       console.warn('def:tone', def)
     }
-    return {
-      ...pickBy({
-        char,
-        note: note?.trim(),
-        group: dedupedGroup,
-        def,
-        pinyin: Object.fromEntries(pinyin),
-      }),
-    }
+    let sup
+    def = def.replace(/^\d\s/, (x) => {
+      sup = Number(x)
+      return ''
+    })
+    return pickBy({
+      char,
+      sup,
+      note: note?.trim(),
+      group: dedupedGroup,
+      def,
+      pinyin: Object.fromEntries(pinyin),
+    })
   })
   return items.filter(Boolean)
 }

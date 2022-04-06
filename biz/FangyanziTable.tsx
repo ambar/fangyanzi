@@ -16,6 +16,7 @@ const fuse = new Fuse(fangyanzi, {
   useExtendedSearch: true,
   keys: [
     'char',
+    'sup',
     // 'group',
     'pinyin',
     'ids',
@@ -103,9 +104,14 @@ const RowItem: React.FC<{item: Zi}> = memo(function RowItem({item}) {
   return (
     <ui.Tr>
       <ui.Td>
-        <ui.Box fontSize="xl" className="useHana">
+        <ui.Flex fontSize="xl" className="useHana">
           {item.glyph === 'ids' ? <IDSGlyph ids={item.ids!} /> : item.char}
-        </ui.Box>
+          {item.sup && (
+            <ui.Text as="sup" fontSize="xs" userSelect="none">
+              {item.sup}
+            </ui.Text>
+          )}
+        </ui.Flex>
       </ui.Td>
       <ui.Td>
         <ui.Text fontSize="sm" fontFamily="Doulos SIL, Arial">

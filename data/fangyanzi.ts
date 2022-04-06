@@ -1,9 +1,12 @@
+import { NumberDecrementStepperProps } from '@chakra-ui/react'
 import data from './fangyanzi.json'
 
 export type Zi = {
+  /** @private */
   __key__: string
   type: string
   char: string
+  sup?: number
   group: string[]
   pinyin: Record<string, string>
   def: string
