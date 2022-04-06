@@ -184,7 +184,9 @@ const parseLines = (lines) => {
         py
           .trim()
           .replace(/\p{Punctuation}$/u, '')
-          .replace(/,\s?/g, '，'),
+          .replace(/,\s?/g, '，')
+          // 㒼/㶒标注错误（不一致），使用了数字
+          .replace(/\d+$/g, x => getToneLetter(x)),
       ]
     })
     const dedupedGroup = group
