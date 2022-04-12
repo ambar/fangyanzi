@@ -1,4 +1,3 @@
-import { NumberDecrementStepperProps } from '@chakra-ui/react'
 import data from './fangyanzi.json'
 
 export type Zi = {
