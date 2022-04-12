@@ -1,10 +1,18 @@
 {
   "name": "fangyanzi",
   "version": "0.1.0",
-  "private": true,
+  "license": "MIT",
+  "description": "方言字,汉语方言用字规范,现代汉语方言大词典",
+  "repository": "ambar/fangyanzi",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:npm": "tsc index.ts --outDir dist -d --resolveJsonModule --esModuleInterop",
     "start": "next start",
     "lint": "next lint"
   },

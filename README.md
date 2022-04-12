@@ -13,6 +13,16 @@
 
 ---
 
+## npm 使用
+
+[![npm version](https://badgen.net/npm/v/fangyanzi)](https://www.npmjs.com/package/fangyanzi)
+
+```ts
+import * as fangyanzi from 'fangyanzi'
+```
+
+---
+
 # 原文件问题汇总
 
 ## 编码问题

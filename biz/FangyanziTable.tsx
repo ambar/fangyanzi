@@ -5,10 +5,15 @@ import Fuse from 'fuse.js'
 import pickBy from 'lodash/pickBy'
 import {useRouter} from 'next/router'
 // @ts-expect-error React has no exported member 'useDeferredValue'
-import {useDeferredValue, useEffect, useMemo, useState, memo} from 'react'
-import fangyanzi, {Zi} from '../data/fangyanzi'
+import {memo, useDeferredValue, useEffect, useMemo, useState} from 'react'
+import {
+  citiesByGroup,
+  data as fangyanzi,
+  Group,
+  groups,
+  Zi,
+} from '../data/fangyanzi'
 import BatchRenderer from './BatchRenderer.jsx'
-import {citiesByGroup, Group, groups} from '../data/fangyanzi.meta'
 
 const citiesByGroupEntries = Object.entries(citiesByGroup)
 
@@ -33,10 +38,8 @@ const fuse = new Fuse(fangyanzi, {
   },
 })
 
-fangyanzi.forEach((x, i) => {
-  // key for React rendering
-  x.__key__ = String(i)
-})
+const getItemkey = (item: Zi) =>
+  item.sup + (item.char || (((item.ids as string) + item.glyph) as string))
 
 const getCitiesByGroup = (groups: Group[]) => {
   return groups.map((g) => citiesByGroup[g]).flat()
@@ -84,7 +87,7 @@ const Intro = () => {
   )
 }
 
-const HelpPopover: React.FC = ({children}) => {
+const HelpPopover: React.FC<{children: React.ReactNode}> = ({children}) => {
   return (
     <ui.Popover trigger="hover">
       <ui.PopoverTrigger>
@@ -347,7 +350,7 @@ const FangyanziTable = () => {
           <ui.Tbody>
             {/* @ts-expect-error ignore */}
             <BatchRenderer items={filtered}>
-              {(item: Zi) => <RowItem key={item.__key__} item={item} />}
+              {(item: Zi) => <RowItem key={getItemkey(item)} item={item} />}
             </BatchRenderer>
           </ui.Tbody>
         </ui.Table>
