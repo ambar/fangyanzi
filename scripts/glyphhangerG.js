@@ -4,22 +4,13 @@ const revised = require('../data/fangyanzi.json')
 const {getRange} = require('../lib/cjkrange')
 
 /**
- * 采用开源的花园明朝显示扩展区汉字
+ * 采用 BabelStone Han 显示扩展区汉字
  * @see https://zh.wikipedia.org/wiki/Wikipedia:Unicode扩展汉字#支援大字集的字型
  */
-const exts = [
-  // macOS 默认能显示
-  // 'ExtensionA',
-  'ExtensionB',
-  'ExtensionC',
-  'ExtensionD',
-  'ExtensionE',
-  'ExtensionF',
-  // 花园明朝不支持 G
-  // 'ExtensionG',
-]
+const exts = ['ExtensionG']
 const chars = revised
-  .map((x) => [x.char, ...x.def, ...(x.note ?? '')]).flat()
+  .map((x) => [x.char, ...x.def, ...(x.note ?? '')])
+  .flat()
   .filter((x) => x && exts.includes(getRange(x)))
   .join('')
 
@@ -32,7 +23,7 @@ const html = `
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body {font-family: Hana;}
+        body {font-family: BabelStoneHan;}
     </style>
 </head>
 <body>${chars}</body>
@@ -41,12 +32,12 @@ const html = `
 const toDir = `./styles/`
 fs.writeFileSync('tmp/input.html', html)
 execSync(
-  'glyphhanger ./tmp/input.html --jsdom --css --formats=woff2 --family=Hana --subset=./tmp/HanaMinB.ttf',
+  'glyphhanger ./tmp/input.html --jsdom --css --formats=woff2 --family=BabelStoneHan --subset=./tmp/BabelStoneHan.ttf',
   {stdio: 'inherit'}
 )
-execSync(`cp tmp/HanaMinB-subset.woff2 ${toDir}`, {stdio: 'inherit'})
-execSync(`cp tmp/HanaMinB.css ${toDir}`, {stdio: 'inherit'})
-const cssFile = `${toDir}HanaMinB.css`
+execSync(`cp tmp/BabelStoneHan-subset.woff2 ${toDir}`, {stdio: 'inherit'})
+execSync(`cp tmp/BabelStoneHan.css ${toDir}`, {stdio: 'inherit'})
+const cssFile = `${toDir}BabelStoneHan.css`
 fs.writeFileSync(
   cssFile,
   fs
