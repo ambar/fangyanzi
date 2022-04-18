@@ -117,7 +117,7 @@ const RowItem: React.FC<{item: Zi}> = memo(function RowItem({item}) {
         </ui.Flex>
       </ui.Td>
       <ui.Td>
-        <ui.Text fontSize="sm" fontFamily="Doulos SIL, Arial">
+        <ui.Text fontSize="sm" fontFamily="ipa">
           {Object.entries(item.pinyin)
             .map((x) => x.join(' '))
             .join(' ')}
@@ -293,10 +293,10 @@ const FangyanziTable = () => {
 
   return (
     <ui.Box
-      css={{
+      sx={{
         'th, td': {padding: '.8em 1.2em'},
         '.useHana': {
-          fontFamily: useExtFont ? 'Hana, var(--chakra-fonts-body)' : 'inherit',
+          fontFamily: useExtFont ? 'cjkExt' : 'inherit',
         },
       }}
     >
