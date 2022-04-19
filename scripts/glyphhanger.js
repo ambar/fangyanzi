@@ -5,6 +5,9 @@ const {getRange} = require('../lib/cjkrange')
 
 /**
  * 采用开源的花园明朝显示扩展区汉字
+ * 该字体分成 HanaMinA（花園明朝A）、HanaMinB（花園明朝B）两部分：
+ * - HanaMinA仅对中日韩统一表意文字区及其扩展A区提供全面支持
+ * - HanaMinB提供了对B区、C区、D区、E区、F区的完整支持。
  * @see https://zh.wikipedia.org/wiki/Wikipedia:Unicode扩展汉字#支援大字集的字型
  */
 const exts = [
@@ -19,7 +22,8 @@ const exts = [
   // 'ExtensionG',
 ]
 const chars = revised
-  .map((x) => [x.char, ...x.def, ...(x.note ?? '')]).flat()
+  .map((x) => [x.char, ...x.def, ...(x.note ?? '')])
+  .flat()
   .filter((x) => x && exts.includes(getRange(x)))
   .join('')
 
