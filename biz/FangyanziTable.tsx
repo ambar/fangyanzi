@@ -91,7 +91,7 @@ const HelpPopover: React.FC<{children: React.ReactNode}> = ({children}) => {
   return (
     <ui.Popover trigger="hover">
       <ui.PopoverTrigger>
-        <ui.Button aria-label="說明" variant="unstyled">
+        <ui.Button display="flex" aria-label="說明" variant="unstyled">
           <icons.InfoOutlineIcon />
         </ui.Button>
       </ui.PopoverTrigger>
@@ -107,7 +107,7 @@ const RowItem: React.FC<{item: Zi}> = memo(function RowItem({item}) {
   return (
     <ui.Tr>
       <ui.Td>
-        <ui.Flex fontSize="xl" className="useHana">
+        <ui.Flex fontSize="xl">
           {item.glyph === 'ids' ? <IDSGlyph ids={item.ids!} /> : item.char}
           {item.sup && (
             <ui.Text as="sup" fontSize="xs" userSelect="none" zIndex={0}>
@@ -122,7 +122,7 @@ const RowItem: React.FC<{item: Zi}> = memo(function RowItem({item}) {
             .map((x) => x.join(' '))
             .join(' ')}
         </ui.Text>
-        <ui.Text className="useHana">
+        <ui.Text>
           {item.def}
           <>{item.note && ` ○ ${item.note}`}</>
           <ui.Badge bg="gray.100" fontWeight="normal">
@@ -293,11 +293,9 @@ const FangyanziTable = () => {
 
   return (
     <ui.Box
+      fontFamily={useExtFont ? 'cjkExt' : 'inherit'}
       sx={{
         'th, td': {padding: '.8em 1.2em'},
-        '.useHana': {
-          fontFamily: useExtFont ? 'cjkExt' : 'inherit',
-        },
       }}
     >
       <ui.Divider my={4} />
@@ -308,7 +306,6 @@ const FangyanziTable = () => {
           <ui.Box>{displayMenu}</ui.Box>
           <ui.Box>
             <ui.Input
-              className="useHana"
               type="search"
               value={keyword}
               placeholder="搜尋"
