@@ -8,6 +8,7 @@ const {getRange} = require('../lib/cjkrange')
  * 该字体分成 HanaMinA（花園明朝A）、HanaMinB（花園明朝B）两部分：
  * - HanaMinA仅对中日韩统一表意文字区及其扩展A区提供全面支持
  * - HanaMinB提供了对B区、C区、D区、E区、F区的完整支持。
+ * 下载：https://osdn.net/projects/hanazono-font/releases/68253
  * @see https://zh.wikipedia.org/wiki/Wikipedia:Unicode扩展汉字#支援大字集的字型
  */
 const exts = [
