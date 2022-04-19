@@ -1,4 +1,4 @@
-import {ChakraProvider, theme, extendTheme} from '@chakra-ui/react'
+import {ChakraProvider, extendTheme, theme} from '@chakra-ui/react'
 import type {AppProps} from 'next/app'
 import '../styles/globals.css'
 
@@ -19,7 +19,7 @@ const customTheme = extendTheme({
   styles: {
     global: {
       body: {
-        '-webkit-font-smoothing': 'auto',
+        WebkitFontSmoothing: 'auto',
       },
     },
   },
