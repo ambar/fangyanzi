@@ -11,8 +11,8 @@ const {getRange} = require('../lib/cjkrange')
  * @see https://zh.wikipedia.org/wiki/Wikipedia:Unicode扩展汉字#支援大字集的字型
  */
 const exts = ['ExtensionG']
-// STSong 有基本区不支持的字，见 /glyph 页
-const stSongMissing = ['鿍']
+// STSong 有基本区不支持的字（来自 Unicode 8，方言字中实际只引用了鿍），见 /glyph 页
+const stSongMissing = ['鿍', '鿎', '鿏']
 const chars = revised
   .map((x) => [x.char, ...x.def, ...(x.note ?? '')])
   .flat()

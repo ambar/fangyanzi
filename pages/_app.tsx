@@ -1,9 +1,9 @@
-import {ChakraProvider, extendTheme, theme} from '@chakra-ui/react'
+import {ChakraProvider, extendTheme} from '@chakra-ui/react'
 import type {AppProps} from 'next/app'
 import '../styles/globals.css'
 
 /** https://zh.m.wikipedia.org/wiki/宋体 */
-const fontSerif = `STSong,SimSun,${theme.fonts.body}`
+const song = `'Songti SC','Noto Serif CJK SC','Source Han Serif SC','Source Han Serif CN',STSong,NSimSun,SimSun,PMingLiU,MingLiU,serif`
 /** https://chakra-ui.com/docs/styled-system/theming/theme */
 const customTheme = extendTheme({
   config: {
@@ -11,10 +11,11 @@ const customTheme = extendTheme({
     // useSystemColorMode: true,
   },
   fonts: {
-    body: fontSerif,
-    heading: fontSerif,
-    ipa: `Doulos SIL,Arial,${fontSerif}`,
-    cjkExt: `BabelStoneHan,Hana,${fontSerif}`,
+    body: song,
+    heading: song,
+    song: song,
+    ipa: `Doulos SIL,Arial,${song}`,
+    cjkExt: `BabelStoneHan,Hana,${song}`,
   },
   styles: {
     global: {

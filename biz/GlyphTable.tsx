@@ -48,7 +48,7 @@ const FangyanziTable = () => {
   }, [chars, grouped])
 
   return (
-    <ui.Box py="8" fontFamily={fontFamily}>
+    <ui.Box py="4" fontFamily={fontFamily}>
       <ui.HStack whiteSpace="nowrap">
         <ui.Flex alignItems="center">
           字体：
@@ -57,7 +57,7 @@ const FangyanziTable = () => {
             onChange={(e) => setFontFamily(e.target.value)}
           >
             <option>cjkExt</option>
-            <option>STSong,SimSun</option>
+            <option>song</option>
             <option>system-ui</option>
           </ui.Select>
         </ui.Flex>
@@ -65,10 +65,12 @@ const FangyanziTable = () => {
           按区分组：
           <ui.Switch isChecked={grouped} onChange={groupedFlag.toggle} />
         </ui.Flex>
-        <ui.Text color="gray.600" fontSize="sm">
-          「cjkExt」表示对扩展区（A～G）应用自定义字体，其他应用 STSong/SimSun。
-        </ui.Text>
       </ui.HStack>
+      <ui.Text my="4" color="gray.600" fontSize="sm">
+        「cjkExt」表示对扩展区 B～G 以及个别基本区（Unicode
+        8，鿍）的汉字应用自定义字体，其他应用 song（系统内置的 Songti SC/ST
+        Song/Simsun 等）。
+      </ui.Text>
       {grouped ? (
         [...groupedChars].map(([key, chars]) => (
           <ui.Box key={key} as="section" my="4">
