@@ -130,7 +130,13 @@ const RowItem: React.FC<{item: Zi}> = memo(function RowItem({item}) {
           </ui.Badge>
         </ui.Text>
       </ui.Td>
-      <ui.Td>{item.group.join('')}</ui.Td>
+      <ui.Td
+        textAlign="right"
+        // 尽可防止抖动（可能改两列，flex 两端对齐更好），多区例字：㪗
+        whiteSpace={['normal', 'nowrap']}
+      >
+        {item.group.join('')}
+      </ui.Td>
     </ui.Tr>
   )
 })
@@ -341,7 +347,7 @@ const FangyanziTable = () => {
             <ui.Tr>
               <ui.Th>字</ui.Th>
               <ui.Th>釋</ui.Th>
-              <ui.Th>區</ui.Th>
+              <ui.Th textAlign="right">區</ui.Th>
             </ui.Tr>
           </ui.Thead>
           <ui.Tbody>
