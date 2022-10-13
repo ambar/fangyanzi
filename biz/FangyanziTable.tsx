@@ -152,9 +152,16 @@ const parseGroup = (group: string) => {
 // NOTE: 确保 z-index 关系，toolbar popover > sticky thead > sup
 const FangyanziTable = () => {
   const router = useRouter()
-  const {query} = router
+  // use CSR
+  const query: typeof router['query'] = {}
   const {colorMode} = useColorMode()
   const [keyword, setKeyword] = useState((query.q as string) || '')
+  useEffect(() => {
+    const clientQuery = Object.fromEntries([
+      ...new URL(location.href).searchParams,
+    ])
+    setKeyword(clientQuery.q || '')
+  }, [])
   const deferredKeyword = useDeferredValue(keyword)
   const [typeFilter, setTypeFilter] = useState(defaultTypeFilter)
   const [useExtFont, setUseExtFont] = useState(true)

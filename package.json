@@ -13,6 +13,8 @@
     "dev": "next dev",
     "build": "next build",
     "build:npm": "tsc index.ts --outDir dist -d --resolveJsonModule --esModuleInterop",
+    "build:static": "next build && next export",
+    "deploy-gh-pages": "yarn build:static && gh-pages -d out",
     "start": "next start",
     "lint": "next lint"
   },
@@ -28,6 +30,7 @@
     "eslint-config-next": "12.1.0",
     "framer-motion": "^6",
     "fuse.js": "^6.5.3",
+    "gh-pages": "^4.0.0",
     "lodash": "^4.17.21",
     "next": "^12.1.4",
     "react": "^18.0.0",
