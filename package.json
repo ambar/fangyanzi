@@ -14,7 +14,7 @@
     "build": "next build",
     "build:npm": "tsc index.ts --outDir dist -d --resolveJsonModule --esModuleInterop",
     "build:static": "next build && next export",
-    "deploy-gh-pages": "yarn build:static && gh-pages -d out",
+    "deploy-gh-pages": "BASE_PATH=/fangyanzi yarn build:static && gh-pages -d out",
     "start": "next start",
     "lint": "next lint"
   },
