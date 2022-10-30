@@ -52,7 +52,7 @@ const IDSGlyph: React.FC<{ids: string}> = ({ids}) => {
     <ui.Image
       display="inline"
       boxSize="1em"
-      src={`/hans/${ids}.svg`}
+      src={`${process.env.NEXT_PUBLIC_ASSET_PREFIX}hans/${ids}.svg`}
       loading="lazy"
       alt={ids}
       css={{filter: colorMode === 'dark' ? 'invert(1)' : 'unset'}}
