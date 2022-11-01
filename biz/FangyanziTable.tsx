@@ -124,9 +124,7 @@ const RowItem: React.FC<{item: Zi}> = memo(function RowItem({item}) {
         <ui.Text>
           {item.def}
           <>{item.note && ` ○ ${item.note}`}</>
-          <ui.Badge bg="gray.100" fontWeight="normal">
-            {item.type}
-          </ui.Badge>
+          <ui.Badge fontWeight="normal">{item.type}</ui.Badge>
         </ui.Text>
       </ui.Td>
       <ui.Td
@@ -153,7 +151,7 @@ const FangyanziTable = () => {
   const router = useRouter()
   // use CSR
   const query: typeof router['query'] = {}
-  const {colorMode} = useColorMode()
+  const {colorMode, toggleColorMode} = useColorMode()
   const [keyword, setKeyword] = useState((query.q as string) || '')
   useEffect(() => {
     const clientQuery = Object.fromEntries([
@@ -328,6 +326,12 @@ const FangyanziTable = () => {
             <HelpPopover>
               <Intro />
             </HelpPopover>
+          </ui.Box>
+          <ui.Box flex={1} />
+          <ui.Box visibility="hidden">
+            <ui.Button onClick={toggleColorMode}>
+              Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
+            </ui.Button>
           </ui.Box>
         </ui.HStack>
       </ui.FormControl>

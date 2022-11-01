@@ -1,4 +1,4 @@
-import {ChakraProvider, extendTheme} from '@chakra-ui/react'
+import {ChakraProvider, extendTheme, type ThemeConfig} from '@chakra-ui/react'
 import type {AppProps} from 'next/app'
 import '../styles/globals.css'
 
@@ -7,11 +7,11 @@ const system = `-apple-system,BlinkMacSystemFont,system-ui`
 /** https://zh.m.wikipedia.org/wiki/宋体 */
 const song = `'Songti SC','Noto Serif CJK SC','Source Han Serif SC','Source Han Serif CN',STSong,NSimSun,SimSun,PMingLiU,MingLiU`
 /** https://chakra-ui.com/docs/styled-system/theming/theme */
-const customTheme = extendTheme({
+export const theme = extendTheme({
   config: {
-    // initialColorMode: 'light',
+    initialColorMode: 'light',
     // useSystemColorMode: true,
-  },
+  } as ThemeConfig,
   fonts: {
     body: `${song},${system},serif`,
     heading: `${song},${system},serif`,
@@ -30,7 +30,7 @@ const customTheme = extendTheme({
 
 function MyApp({Component, pageProps}: AppProps) {
   return (
-    <ChakraProvider theme={customTheme}>
+    <ChakraProvider theme={theme}>
       <Component {...pageProps} />
     </ChakraProvider>
   )
