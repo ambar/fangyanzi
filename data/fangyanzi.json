@@ -411,7 +411,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱖇",
     "ids": "⿰土干",
     "glyph": "ids",
     "group": [
@@ -646,7 +646,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱼁",
     "ids": "⿰月乃",
     "glyph": "ids",
     "note": "可直接寫“奶”",
@@ -880,7 +880,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱍕",
     "ids": "⿻丅⿱从人",
     "glyph": "ids",
     "group": [
@@ -1058,7 +1058,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱐮",
     "ids": "⿰用力",
     "glyph": "ids",
     "group": [
@@ -1465,7 +1465,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱐃",
     "ids": "⿰冫兆",
     "glyph": "ids",
     "group": [
@@ -1628,7 +1628,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱖟",
     "ids": "⿰土匡",
     "glyph": "ids",
     "group": [
@@ -1970,7 +1970,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱱋",
     "ids": "⿸疒壬",
     "glyph": "ids",
     "group": [
@@ -2042,7 +2042,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱥛",
     "ids": "⿱未母",
     "glyph": "ids",
     "group": [
@@ -2159,7 +2159,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱍚",
     "ids": "⿱不多",
     "glyph": "ids",
     "group": [
@@ -2200,7 +2200,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱘲",
     "ids": "⿱大男",
     "glyph": "ids",
     "group": [
@@ -2337,7 +2337,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱓆",
     "ids": "⿰口廹",
     "glyph": "ids",
     "group": [
@@ -2696,7 +2696,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱚺",
     "ids": "⿸尸妥",
     "glyph": "ids",
     "group": [
@@ -2829,7 +2829,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱖾",
     "ids": "⿰土非",
     "glyph": "ids",
     "group": [
@@ -3138,7 +3138,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱐇",
     "ids": "⿰冫頁",
     "glyph": "ids",
     "group": [
@@ -3564,7 +3564,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱮏",
     "ids": "⿰犭活",
     "glyph": "ids",
     "note": "字又作“狧”",
@@ -3613,7 +3613,8 @@
     "def": "①排泄；②腹瀉；③量詞。用於糞尿",
     "pinyin": {
       "寧波": "ʣa˨˩˧"
-    }
+    },
+    "char": "𱚼"
   },
   {
     "type": "嚴式",
@@ -3778,7 +3779,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱤸",
     "ids": "⿰禺欠",
     "glyph": "ids",
     "group": [
@@ -3828,7 +3829,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱓶",
     "ids": "⿰口恁",
     "glyph": "ids",
     "group": [
@@ -4104,7 +4105,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱙦",
     "ids": "⿰女能",
     "glyph": "ids",
     "group": [
@@ -4257,7 +4258,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱳃",
     "ids": "⿰目契",
     "glyph": "ids",
     "group": [
@@ -4436,7 +4437,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱶞",
     "ids": "⿰禾郞",
     "glyph": "ids",
     "group": [
@@ -4460,7 +4461,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𲇋",
     "ids": "⿰金而",
     "glyph": "ids",
     "group": [
@@ -4576,7 +4577,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𲀷",
     "ids": "⿱屈衣",
     "glyph": "ids",
     "group": [
@@ -4622,7 +4623,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱺤",
     "ids": "⿰纟些",
     "glyph": "ids",
     "group": [
@@ -4680,7 +4681,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𲃇",
     "ids": "⿰赤兒",
     "glyph": "ids",
     "group": [
@@ -4717,7 +4718,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱰠",
     "ids": "⿱莫用",
     "glyph": "ids",
     "group": [
@@ -4741,7 +4742,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱴨",
     "ids": "⿰石恩",
     "glyph": "ids",
     "group": [
@@ -4789,7 +4790,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱿲",
     "ids": "⿰虫革",
     "glyph": "ids",
     "group": [
@@ -4802,7 +4803,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱿳",
     "ids": "⿰虫厚",
     "glyph": "ids",
     "group": [
@@ -4815,7 +4816,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱿸",
     "ids": "⿰虫施",
     "glyph": "ids",
     "group": [
@@ -4895,7 +4896,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱼕",
     "ids": "⿰月戛",
     "glyph": "ids",
     "group": [
@@ -4944,7 +4945,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱬀",
     "ids": "⿰火勒",
     "glyph": "ids",
     "group": [
@@ -4994,7 +4995,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𲌛",
     "ids": "⿱髟任",
     "glyph": "ids",
     "group": [
@@ -5291,7 +5292,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𲀁",
     "ids": "⿰虫戛",
     "glyph": "ids",
     "group": [
@@ -5563,7 +5564,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𲊙",
     "ids": "⿱非射",
     "glyph": "ids",
     "group": [
@@ -5576,7 +5577,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱳋",
     "ids": "⿰目楚",
     "glyph": "ids",
     "group": [
@@ -5589,7 +5590,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱕇",
     "ids": "⿰口様",
     "glyph": "ids",
     "group": [
@@ -5614,7 +5615,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𲀊",
     "ids": "⿰虫⿱死肉",
     "glyph": "ids",
     "group": [
@@ -5718,7 +5719,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱹞",
     "ids": "⿰米堯",
     "glyph": "ids",
     "group": [
@@ -5893,7 +5894,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱹤",
     "ids": "⿰米意",
     "glyph": "ids",
     "group": [
@@ -6347,7 +6348,7 @@
   },
   {
     "type": "嚴式",
-    "char": "",
+    "char": "𱡖",
     "ids": "⿰扌欒",
     "glyph": "ids",
     "group": [
