@@ -189,7 +189,6 @@ const FangyanziTable = () => {
   const updateQuery = useCallbackRef(
     (partial: Record<string, string | null>) => {
       router.replace({
-        ...router,
         query: pickBy({...query, ...partial}),
       })
     }
