@@ -4,7 +4,6 @@ import {useCallbackRef, useColorMode} from '@chakra-ui/react'
 import Fuse from 'fuse.js'
 import pickBy from 'lodash/pickBy'
 import {useRouter} from 'next/router'
-// @ts-expect-error React has no exported member 'useDeferredValue'
 import {memo, useDeferredValue, useEffect, useMemo, useState} from 'react'
 import {
   citiesByGroup,
